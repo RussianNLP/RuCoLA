@@ -15,6 +15,7 @@ from transformers import (
     Trainer,
     TrainingArguments,
     EvalPrediction,
+    set_seed,
 )
 
 from utils import read_splits
@@ -83,6 +84,8 @@ def main(model_name):
         for j, weight_decay in enumerate(DECAY_VALUES):
             for k, batch_size in enumerate(BATCH_SIZES):
                 for seed in range(N_SEEDS):
+                    set_seed(seed)
+
                     if "rubert" in model_name:
                         model = BertForSequenceClassification.from_pretrained(MODEL_TO_HUB_NAME[model_name])
                     else:
