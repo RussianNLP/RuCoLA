@@ -80,6 +80,8 @@ def main(model_name):
     # seed, lr, wd, bs
     dev_metrics_per_run = np.empty((N_SEEDS, len(LR_VALUES), len(DECAY_VALUES), len(BATCH_SIZES), 2))
 
+    best_mcc = -float("inf")
+
     for i, learning_rate in enumerate(LR_VALUES):
         for j, weight_decay in enumerate(DECAY_VALUES):
             for k, batch_size in enumerate(BATCH_SIZES):
@@ -143,6 +145,11 @@ def main(model_name):
                     np.save(f"results/{run_base_dir}_{seed}/preds.npy", predictions.predictions)
 
                     rmtree(f"checkpoints/{run_base_dir}")
+
+                    if dev_predictions.metrics["test_mcc"] > best_mcc:
+                        print(f"Found new best model! {learning_rate} {weight_decay} {batch_size} {seed}")
+                        best_mcc = dev_predictions.metrics["test_mcc"]
+                        model.save_pretrained(f"checkpoints_best/{model_name}")
 
     os.makedirs("results_agg", exist_ok=True)
     np.save(f"results_agg/{model_name}_dev.npy", dev_metrics_per_run)
