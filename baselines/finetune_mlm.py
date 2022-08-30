@@ -73,6 +73,7 @@ def main(model_name):
         partial(preprocess_examples, tokenizer=tokenizer),
         batched=True,
         remove_columns=["sentence"],
+        keep_in_memory=True,
     )
 
     data_collator = DataCollatorWithPadding(tokenizer, pad_to_multiple_of=8)
@@ -105,6 +106,7 @@ def main(model_name):
                         weight_decay=weight_decay,
                         num_train_epochs=N_EPOCHS,
                         warmup_ratio=0.1,
+                        optim="adamw_torch",
                         save_strategy="epoch",
                         save_total_limit=1,
                         seed=seed,
