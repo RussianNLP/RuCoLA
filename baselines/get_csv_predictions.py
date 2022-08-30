@@ -31,19 +31,18 @@ def main(models):
         else:
             dev_metrics = np.load(f"results_agg/{model_name}_dev.npy")
 
-            # Use average MCC over all seeds to find the best hyperparameters
-            averaged_dev_metrics = dev_metrics.mean(axis=0)
-            max_ind = np.unravel_index(averaged_dev_metrics[..., 1].argmax(), shape=averaged_dev_metrics[..., 1].shape)
+            # Use MCC to find the best hyperparameters
+            max_ind = np.unravel_index(dev_metrics[..., 1].argmax(), shape=dev_metrics[..., 1].shape)
 
             if model_name == "logreg":
-                (reg_coef,) = max_ind
-                best_dir = f"{model_name}_{C_VALUES[reg_coef]}_0"
+                seed, reg_coef = max_ind
+                best_dir = f"{model_name}_{C_VALUES[reg_coef]}_{seed}"
             elif "t5" in model_name:
-                lr, wd, bs = max_ind
-                best_dir = f"{model_name}_{T5_LR_VALUES[lr]}_{T5_DECAY_VALUES[wd]}_{T5_BATCH_SIZES[bs]}_0"
+                seed, lr, wd, bs = max_ind
+                best_dir = f"{model_name}_{T5_LR_VALUES[lr]}_{T5_DECAY_VALUES[wd]}_{T5_BATCH_SIZES[bs]}_{seed}"
             else:
-                lr, wd, bs = max_ind
-                best_dir = f"{model_name}_{MLM_LR_VALUES[lr]}_{MLM_DECAY_VALUES[wd]}_{MLM_BATCH_SIZES[bs]}_0"
+                seed, lr, wd, bs = max_ind
+                best_dir = f"{model_name}_{MLM_LR_VALUES[lr]}_{MLM_DECAY_VALUES[wd]}_{MLM_BATCH_SIZES[bs]}_{seed}"
 
         preds = np.load(f"results/{best_dir}/preds.npy")
 
