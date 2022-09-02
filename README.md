@@ -94,6 +94,11 @@ python baselines/finetune_t5.py -m [MODEL_NAME]
 Afterwards, you can get test set predictions in the format required by the leaderboard for all trained models.
 To do this, run `python baselines/get_csv_predictions.py -m MODEL1 MODEL2 ...`.
 
+### Get finetuned models
+If you want to use an acceptability classifier trained on RuCoLA for your applications without training it yourself, 
+we provide the following checkpoints available on the Hugging Face Hub:
+* [ruRoBERTa-large-rucola](https://huggingface.co/RussianNLP/ruRoBERTa-large-rucola)
+
 ## Contact us
 For any questions about RuCoLA or this website, write to [contact@rucola-benchmark.com](mailto:contact@rucola-benchmark.com) or create an issue in this repository.
 
