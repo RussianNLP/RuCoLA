@@ -107,19 +107,11 @@ You can also join the [official Telegram chat](https://t.me/RuCoLA_benchmark) to
 ## Cite
 If you use RuCoLA in your research, please cite the dataset using the following entry:
 ```
-@dataset{vladislav_mikhailov_2022_6560847,
-  author       = {Vladislav Mikhailov and
-                  Tatiana Shamardina and
-                  Max Ryabinin and
-                  Alena Pestova and
-                  Ivan Smurov and
-                  Ekaterina Artemova},
-  title        = {RuCoLA benchmark},
-  month        = may,
-  year         = 2022,
-  publisher    = {Zenodo},
-  doi          = {10.5281/zenodo.6560847},
-  url          = {https://doi.org/10.5281/zenodo.6560847}
+@article{mikhailov2022rucola,
+  title={RuCoLA: Russian Corpus of Linguistic Acceptability},
+  author={Mikhailov, Vladislav and Shamardina, Tatiana and Ryabinin, Max and Pestova, Alena and Smurov, Ivan and Artemova, Ekaterina},
+  journal={arXiv preprint arXiv:2210.12814},
+  year={2022}
 }
 ```
 
