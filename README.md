@@ -6,7 +6,7 @@ The Russian Corpus of Linguistic Acceptability (RuCoLA) is a dataset consisting 
 
 The corpus covers a variety of language phenomena, ranging from syntax and semantics to generative model hallucinations. We release RuCoLA to facilitate the development of methods for identifying errors in natural language and create a [public leaderboard](https://rucola-benchmark.com/) to track the progress on this problem.
 
-The dataset is available in the [data/](./data) folder of the repository. 
+The dataset is available on [HuggingFace](https://huggingface.co/datasets/RussianNLP/rucola) and in the [data/](./data) folder of the repository. 
 
 Read more about RuCoLA in the corresponding [blog post](https://habr.com/ru/post/667336/) (in Russian).
 
