@@ -105,7 +105,7 @@ For any questions about RuCoLA or this website, write to [contact@rucola-benchma
 You can also join the [official Telegram chat](https://t.me/RuCoLA_benchmark) to discuss your ideas with others and to follow the latest updates of the project.
 
 ## Cite
-Our [paper](https://arxiv.org/abs/2210.12814) is accepted to the EMNLP 2022 main conference. 
+Our [paper](https://aclanthology.org/2022.emnlp-main.348/) is accepted to the EMNLP 2022 main conference. 
 
 If you use RuCoLA in your research, please cite the dataset using the following entry:
 ```
